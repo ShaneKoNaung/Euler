@@ -14,25 +14,11 @@ def SumOfMultiOf3And5(n):
     ret:
         int
     '''
-    n = n - 1    # the sum is below n
-    n3 = n // 3  # number of multiples of 3 below n
-    n5 = n // 5  # number of multiples of 5 below n
-    n15 = n // 15   # number of multiples of 15 below n
-    i = 1
-    sum3, sum5, sum15 = 0, 0, 0
-    while n3 >= i:
-        sum3 += i * 3
-        i += 1
-    i = 1
-    while n5 >= i:
-        sum5 += i * 5
-        i += 1
-    i = 1
-    while n15 >= i:
-        sum15 += i * 15
-        i += 1
-    print(sum3, sum5, sum15)
-    return sum3 + sum5 - sum15
+    sum = 0
+    for i in range(n):
+        if i % 3 == 0 or i % 5 == 0:
+            sum += i
+    return sum
 
 
 print(SumOfMultiOf3And5(int(input())))

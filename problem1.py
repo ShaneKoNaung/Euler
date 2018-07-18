@@ -14,11 +14,16 @@ def SumOfMultiOf3And5(n):
     ret:
         int
     '''
-    sum = 0
-    for i in range(n):
-        if i % 3 == 0 or i % 5 == 0:
-            sum += i
-    return sum
+    # ideal solution
+    n = n - 1
+    n3 = n // 3     # number of multiples of 3 under n
+    n5 = n // 5     # number of multiples of 5 under n
+    n15 = n // 15   # number of multiples of 15 under n
+    # 1 + 2 + 3 ... n = (n * n - 1) // 2
+    sum3 = 3 * (n3 * (n3 + 1)) // 2
+    sum5 = 5 * (n5 * (n5 + 1)) // 2
+    sum15 = 15 * (n15 * (n15 + 1)) // 2
+    return sum3 + sum5 - sum15
 
 
 print(SumOfMultiOf3And5(int(input())))
